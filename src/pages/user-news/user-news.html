@@ -20,9 +20,17 @@
       <ion-title end>User News</ion-title>
     </ion-navbar>
   </ion-header>
-
-
-
+  
 <ion-content padding>
+    <ion-card *ngFor="let n of items | async | reverse">
+        <img class="card-image" src="{{n.urlToImg}}" />
+        <div class="card-title">{{n.title}}</div>
+        <div class="card-description">{{n.description}}</div>
+        <div class="card-categories">Categories {{n.categories}}</div>
+        <div class="card-date">{{n.createdAt | date}}</div>        
+        <div class="card-button">    
+        <button ion-button (click)="ReadArticle(n.key)">Read Article</button>   
+       </div>
+      </ion-card>
 
 </ion-content>

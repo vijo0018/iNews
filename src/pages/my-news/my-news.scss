@@ -1,5 +1,4 @@
-page-user-news {
-   
+page-my-news {
     @media screen and (min-width:800px) {
         .card-image{
                  width: 50%;
@@ -20,30 +19,26 @@ page-user-news {
              margin-left: auto;
              margin-right: auto;
     }
-  
-    .card-title{
-        font-size: 17px;
-        margin: 5px;
-        margin-left: 25px;
-        margin-right: 25px;
-    }
-    .card-description{
-        margin: 5px;
-        margin-left: 25px;
-        margin-right: 25px;
+    ion-card img{
+        width:500px;
+        margin-left: auto;
+        margin-right: auto;
+    
     }
     .card-categories{
-        margin: 5px;
-        margin-left: 25px;
-        margin-right: 25px;
+        margin: 15px;
     }
-    .card-button{
-        float:right;
+    .card-title{
+        font-size: 26px;
+        margin: 15px;
+    }
+    .card-story{
+        font-size: 17px;
         margin: 15px;
     }
     .card-date{
-
         margin-right: 25px;
-        text-align:right;
-    }
+       text-align:right;
+           }
+    
 }

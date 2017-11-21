@@ -14,30 +14,40 @@
 
 
 <ion-content padding>
-    <input (keydown.enter)="addPost($event.target.value)" />
-
-    <ion-item *ngFor="let n of news | async">
-        {{n.title}}
-      </ion-item>
-  <!-- <form>
-    <ion-list>
+  <ion-item>
+        <ion-label floating>Categories</ion-label>
+        <ion-select [(ngModel)]="categories" multiple>
+          <ion-option *ngFor="let categories of categoryOptions" [value]="categories">{{categories}}</ion-option>
+          </ion-select>
+        </ion-item>
+    <form #f="ngForm" (ngSubmit)="addPost(f)">
       <ion-item>
         <ion-label floating>Title</ion-label>
-        <ion-input type="text"></ion-input>
+        <!-- <ion-input type="text" [(ngModel)]="Item.title" name="title" required></ion-input>         -->
+        <ion-input type="text" [(ngModel)]="title" name="title" required></ion-input>        
       </ion-item>
       <ion-item>
-        <ion-label floating>Description</ion-label>
-        <ion-textarea></ion-textarea>
+        <ion-label floating>Image Url</ion-label>
+        <ion-input type="text" [(ngModel)]="urlToImg" name="urlToImg" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Category</ion-label>
-      <ion-select>
-        <ion-option *ngFor="let categories of categoryOptions" [value]="categories">{{categories}}</ion-option>
-      </ion-select>
-       </ion-item>
-    </ion-list>
-    <button (click)="addPost()" type="submit" ion-button block>{{mode}} Post</button>
-  </form> -->
-
-     
+      <ion-label floating>Description</ion-label>
+      <ion-textarea [(ngModel)]="description" name="description" required></ion-textarea>
+    </ion-item>
+      <ion-item>
+        <ion-label floating>Story</ion-label>
+        <ion-textarea [(ngModel)]="story" name="story" required></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" block [disabled]="!f.valid">Create News</button>
+    </form>
+   
+    <ion-card *ngFor="let n of items | async | reverse">
+      <img class="card-image" src="{{n.urlToImg}}" />
+      <div class="card-title">{{n.title}}</div>
+      <div class="card-description">{{n.description}}</div>
+      <div class="card-categories">Categories {{n.categories}}</div>
+      <div class="card-date">{{n.createdAt | date}}</div>
+      <button class="card-button" ion-button (click)="viewArticle(n.key)">View article</button>     
+      <button class="card-buttonv2" ion-button color="danger" (click)="deleteItem(n.key)">Delete</button>
+    </ion-card>
 </ion-content>

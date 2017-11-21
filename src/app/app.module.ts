@@ -1,10 +1,13 @@
+import { ProfilePage } from './../pages/profile/profile';
+import { ReversePipe } from './../pipes/reverse/reverse';
+import { ReadUserNewsPage } from './../pages/read-user-news/read-user-news';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { MyNewsPage } from './../pages/my-news/my-news';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { MakePostPage } from './../pages/make-post/make-post';
@@ -35,20 +38,22 @@ export const firebaseConfig = {
   storageBucket: "inews-d1ef6.appspot.com",
   messagingSenderId: "869919036997"
 };
-
+//BY Vidar Asp Johansson
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    HomePage,
     TabsPage,
-
     UserNewsPage,
     MyProfilePage,
     LoginPage,
     ApiNewsPage,
     RegisterPage,
-    MakePostPage
+    MakePostPage,
+    MyNewsPage,
+    ReadUserNewsPage,
+    ProfilePage,
+
+    ReversePipe
   ],
   imports: [
     BrowserModule,
@@ -61,15 +66,17 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    HomePage,
     TabsPage,
     UserNewsPage,
     MyProfilePage,
     LoginPage,
     ApiNewsPage,
     RegisterPage,
-    MakePostPage
+    MakePostPage,
+    MyNewsPage,
+    ReadUserNewsPage,
+    ProfilePage,
+
   ],
   providers: [
     StatusBar,
@@ -78,7 +85,8 @@ export const firebaseConfig = {
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseAuthProvider,
-    InAppBrowser
+    InAppBrowser,
+    AngularFireAuth
     
   ]
 })

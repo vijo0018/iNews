@@ -1,3 +1,4 @@
+//import { ProfilePage } from './../profile/profile';
 import { FirebaseAuthProvider } from './../../providers/firebase-auth/firebase-auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController} from 'ionic-angular';
@@ -40,10 +41,11 @@ onRegister(form: NgForm){
       buttons: ['Ok']
     });
     alert.present();
+    
   });
+  //this.navCtrl.push(ProfilePage);
 }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
-  }
+
+ 
 
 }

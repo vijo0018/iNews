@@ -61,7 +61,8 @@ export class ApiNewsPage {
       this.inAppBrowser.create(url, '_self', options);
 
     }
-  
+    
+    
   ngOnInit(){
    this.sortBy = 'Top';
    this.getSources();      
@@ -72,13 +73,13 @@ export class ApiNewsPage {
     this.news = null;
       this.newsService.getNews(this.source, this.sortBy).subscribe(data => {
       this.status = data.status;
-      console.log(this.news = data.articles);
+      this.news = data.articles;
   
       }, onerror =>  this.error = this.message = "The news source you've selected (" + this.source + ") isn't availabe sorted by "+this.sortBy); //onerror._body ger en string?
     }
     getSources(){
       this.newsService.getSource().subscribe(data => {
-      console.log(this.sourceArray = data.sources);  
+      this.sourceArray = data.sources;  
       this.fillArrays();
       });
       
@@ -90,7 +91,7 @@ export class ApiNewsPage {
        for(let item of this.sourceArray){
          if(item.id == this.source){
            this.tempOne = item.sortBysAvailable[0];
-           console.log(item.sortBysAvailable.length)
+           item.sortBysAvailable.length
            if(item.sortBysAvailable.length == 1){
             this.tempOne = item.sortBysAvailable[0];
 

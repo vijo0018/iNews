@@ -33,6 +33,7 @@ export class LoginPage {
     .then(data =>{
       loading.dismiss();
     }).catch(error =>{
+      loading.dismiss();
       const alert = this.alertCtrl.create({
         title:'Loggin Failed :(',
         message: error.message,

@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>News</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <img class="card-image" src="{{(news | async)?.urlToImg}}" />
+        <div class="card-title">{{(news | async)?.title}}</div>
+        <div class="card-categories">Categories {{(news | async)?.categories}}</div>
+        <div class="card-date">{{(news | async)?.createdAt | date}}</div>                        
+        <div class="card-story">{{(news | async)?.story}} </div>
+      </ion-card> 
+
+</ion-content>

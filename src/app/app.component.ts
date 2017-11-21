@@ -1,3 +1,4 @@
+// import { ProfilePage } from './../pages/profile/profile';
 import { MyProfilePage } from './../pages/my-profile/my-profile';
 import { FirebaseAuthProvider } from './../providers/firebase-auth/firebase-auth';
 import { LoginPage } from './../pages/login/login';
@@ -20,6 +21,7 @@ export class MyApp {
   loginPage:any = LoginPage;
   userNews:any = UserNewsPage;
   activePage:any;
+  // createProfilePage = ProfilePage;
   //tabsPage:any = TabsPage;
 
   isAuth = false;
@@ -55,13 +57,11 @@ ngOnInit() {
   this.pages = [
     {title: "Home", component: this.rootPage, icon:"home"},
     {title: 'My Profile', component: MyProfilePage, icon:"md-person"},
-  
-
   ];
   firebase.auth().onAuthStateChanged(user =>{
     if(user){
       this.isAuth = true;
-      this.nav.setRoot(this.rootPage);
+      this.nav.setRoot(this.rootPage); 
     }else{
       this.isAuth = false;
       this.nav.setRoot(this.rootPage);
@@ -76,7 +76,7 @@ ngOnInit() {
   onLogout(){
     this.authService.logout();
    this.isAuth = false;
-    this.nav.setRoot(this.rootPage);
+    this.nav.setRoot(this.userNews);//rootPage
     this.menuCtrl.close();
  }
  onLoad(page: any){

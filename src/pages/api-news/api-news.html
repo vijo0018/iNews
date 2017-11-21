@@ -40,8 +40,10 @@
 <ion-card *ngFor="let a of news">
   <img class="card-image" src="{{a.urlToImage}}" />
   <div class="card-title">{{a.title}}</div>
-  <div class="card-subtitle">{{a.description}}</div>
+  <div class="card-description">{{a.description}}</div>
+  <div class="card-button">    
   <button ion-button (click)="openWebPage(a.url)">Read more</button>  
+  </div>
   <div class="card-date">{{a.publishedAt | date}}</div>
 
 </ion-card>
