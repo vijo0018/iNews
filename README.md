@@ -1,26 +1,17 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+## How to use application
 
-## How to use this template
+*This is a news application*. 
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+-npm install
+-ionic serve
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+### Brief App overview:
+The app (INEWS) is a news application made in Ionic and using firebase a Realtime database. Where the users can check real news sources and read another users news. And if logged in, even post their own news articles. 
 
-### With the Ionic CLI:
+<p align="center">
+  <img src="15.png" width="350"/>
+  <img src="backtothestart.PNG" width="350"/>
+</p>
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
-```
-
-Then, to run it, cd into `myTabs` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
+When created a new post it gets posted on the node where all users can read and on the node where the user can handle and see their own posts. When a user deletes their post, it gets deleted in both nodes. The user gets authenticated with firebase and if user isn’t authenticated he can’t see the add post button or his profile, although he can see the posts. The authentication is setup in the firebase rules
 
